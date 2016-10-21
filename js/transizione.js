@@ -1,5 +1,5 @@
 jQuery(document).ready(function() {
-
+console.log("Ready TRANS");
   /* Custom effects registration - feature available in the Velocity UI pack */
   //none
   $.Velocity
@@ -215,44 +215,6 @@ jQuery(document).ready(function() {
           ]
       });
 
-  //Please note, the DOM should be ready
-Barba.Pjax.start();
-
-var Homepage = Barba.BaseView.extend({
-namespace: 'page',
-onEnter: function() {
-   // The new Container is ready and attached to the DOM.
-
-
-
-
-
-
-
-
-},
-onEnterCompleted: function() {
-
-
-   // The Transition has just finished.
-   jQuery(document).foundation();
-
-
-
-
-},
-onLeave: function() {
-   // A new Transition toward a new page has just started.
-},
-onLeaveCompleted: function() {
-   // The Container has just been removed from the DOM.
-   //
-}
-});
-
-// Don't forget to init the view!
- Homepage.init();
-
 
   var FadeTransition = Barba.BaseTransition.extend({
     start: function() {
@@ -272,8 +234,9 @@ onLeaveCompleted: function() {
       /**
        * this.oldContainer is the HTMLElement of the old Container
        */
+       $("#offCanvasLeft").parent().toggleClass('is-off-canvas-open is-open-left');;
 
-      return $(this.oldContainer).animate({ opacity: 0 }).promise();
+      return $(this.oldContainer).velocity("slideUp", { duration: 1500 }).promise();
     },
 
     fadeIn: function() {
@@ -285,24 +248,34 @@ onLeaveCompleted: function() {
 
       var _this = this;
       var $el = $(this.newContainer);
-
       $(this.oldContainer).hide();
-
-      $el.css({
-        visibility : 'visible',
-        opacity : 0
-      });
-
-      $el.animate({ opacity: 1 }, 400, function() {
-        /**
-         * Do not forget to call .done() as soon your transition is finished!
-         * .done() will automatically remove from the DOM the old Container
-         */
-
-        _this.done();
-      });
+      $el.velocity("slideDown", {visibility : 'visible', duration: 1500, complete: function(elements) { console.log(elements);
+      _this.done(); }});
     }
   });
+  var Homepage = Barba.BaseView.extend({
+    namespace: 'page',
+    onEnter: function() {
+        // The new Container is ready and attached to the DOM.
+    },
+    onEnterCompleted: function() {
+        // The Transition has just finished.
+        console.log("onEnterCompleted");
+        $(document).foundation();
+
+    },
+    onLeave: function() {
+        // A new Transition toward a new page has just started.
+    },
+    onLeaveCompleted: function() {
+        // The Container has just been removed from the DOM.
+    }
+  });
+
+  // Don't forget to init the view!
+  Homepage.init();
+
+
 
   /**
    * Next step, you have to tell Barba to use the new Transition
@@ -316,8 +289,13 @@ onLeaveCompleted: function() {
 
     return FadeTransition;
   };
-
+  Barba.Dispatcher.on("transitionCompleted", function() {
+    console.log("PUPPA");
+   // $(document).foundation();
+   $("#barba-container").velocity("slideUp",   {delay: 900, duration: 1000});
+  });
   //Please note, the DOM should be ready
   Barba.Pjax.start();
+  Barba.Prefetch.init();
 
 });
