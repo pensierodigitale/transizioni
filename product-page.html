@@ -27,17 +27,24 @@
         }
 
         .pageload-overlay {
-    bottom: 0;
+    height: 100%;
+    width: 100%;
     left: 0;
-    position: fixed;
-    right: 0;
+    position: absolute;
     top: 0;
     z-index: 0;
+    vertical-align: middle;
+    text-align: center;
+
+}
+.pageload-overlay h1{
+    display: block;
+    margin-top: 300px;
 
 }
     </style>
     <div class="pageload-overlay">
-        <image src=
+    <h1>PUPPAMELO</h1>
     </div>
 
     <div id="barba-wrapper">
@@ -77,8 +84,8 @@
                             <div class="row column text-center">
                               <h1>Changing the World Through Design</h1>
                               <p class="lead">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam in dui mauris.</p>
-                              <a href="#" class="button large">Learn More</a>
-                              <a href="#" class="button large hollow">Learn Less</a>
+                              <a id="more" href="portfolio.html" class="button large">Learn More</a>
+                              <a id="less" href="#" class="button large hollow">Learn Less</a>
                             </div>
                           </div>
 

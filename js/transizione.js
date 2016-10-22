@@ -234,7 +234,7 @@ console.log("Ready TRANS");
       /**
        * this.oldContainer is the HTMLElement of the old Container
        */
-       $("#offCanvasLeft").parent().toggleClass('is-off-canvas-open is-open-left');;
+       $(".is-off-canvas-open").toggleClass('is-off-canvas-open is-open-left');;
 
       return $(this.oldContainer).velocity("slideUp", { duration: 1500 }).promise();
     },
@@ -290,9 +290,17 @@ console.log("Ready TRANS");
     return FadeTransition;
   };
   Barba.Dispatcher.on("transitionCompleted", function() {
-    console.log("PUPPA");
+    //console.log($("#more"));
    // $(document).foundation();
-   $("#barba-container").velocity("slideUp",   {delay: 900, duration: 1000});
+   $("#more").velocity({
+       translateX: "200px",
+       rotateZ: "360deg"
+   }).velocity("reverse", {delay:500 });
+   $("#less").velocity({
+       translateX: "-200px",
+       rotateZ: "-360deg"
+   }).velocity("reverse", {delay:500 });
+  // $("#barba-container").velocity("slideUp",   {delay: 900, duration: 1000});
   });
   //Please note, the DOM should be ready
   Barba.Pjax.start();
