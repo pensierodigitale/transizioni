@@ -2,6 +2,17 @@ jQuery(document).ready(function() {
 console.log("Ready TRANS");
   /* Custom effects registration - feature available in the Velocity UI pack */
   //none
+  
+   // nuovo effetto
+    /* loader div in tarnsizione*/
+  loader = new SVGLoader( document.getElementById( 'loader' ), { speedIn : 300, easingIn : mina.easeinout } );
+  //*
+  
+  
+  
+  
+  
+  
   $.Velocity
       .RegisterEffect("translateUp", {
           defaultDuration: 1,
