@@ -2,233 +2,17 @@ jQuery(document).ready(function() {
 console.log("Ready TRANS");
   /* Custom effects registration - feature available in the Velocity UI pack */
   //none
-  
+
    // nuovo effetto
     /* loader div in tarnsizione*/
-  loader = new SVGLoader( document.getElementById( 'loader' ), { speedIn : 300, easingIn : mina.easeinout } );
-  //*
-  
-  
-  
-  
-  
-  
-  $.Velocity
-      .RegisterEffect("translateUp", {
-          defaultDuration: 1,
-          calls: [
-              [{translateY: '-100%'}, 1]
-          ]
-      });
-  $.Velocity
-      .RegisterEffect("translateDown", {
-          defaultDuration: 1,
-          calls: [
-              [{translateY: '100%'}, 1]
-          ]
-      });
-  $.Velocity
-      .RegisterEffect("translateNone", {
-          defaultDuration: 1,
-          calls: [
-              [{translateY: '0', opacity: '1', scale: '1', rotateX: '0', boxShadowBlur: '0'}, 1]
-          ]
-      });
+  // loader = new SVGLoader( document.getElementById( 'loader' ), { speedIn : 300, easingIn : mina.easeinout } );
+  // //*
 
-  //scale down
-  $.Velocity
-      .RegisterEffect("scaleDown", {
-          defaultDuration: 1,
-          calls: [
-              [{opacity: '0', scale: '0.7', boxShadowBlur: '40px'}, 1]
-          ]
-      });
-  //rotation
-  $.Velocity
-      .RegisterEffect("rotation", {
-          defaultDuration: 1,
-          calls: [
-              [{opacity: '0', rotateX: '90', translateY: '-100%'}, 1]
-          ]
-      });
-  $.Velocity
-      .RegisterEffect("rotation.scroll", {
-          defaultDuration: 1,
-          calls: [
-              [{opacity: '0', rotateX: '90', translateY: '0'}, 1]
-          ]
-      });
-  //gallery
-  $.Velocity
-      .RegisterEffect("scaleDown.moveUp", {
-          defaultDuration: 1,
-          calls: [
-              [{translateY: '-10%', scale: '0.9', boxShadowBlur: '40px'}, 0.20],
-              [{translateY: '-100%'}, 0.60],
-              [{translateY: '-100%', scale: '1', boxShadowBlur: '0'}, 0.20]
-          ]
-      });
-  $.Velocity
-      .RegisterEffect("scaleDown.moveUp.scroll", {
-          defaultDuration: 1,
-          calls: [
-              [{translateY: '-100%', scale: '0.9', boxShadowBlur: '40px'}, 0.60],
-              [{translateY: '-100%', scale: '1', boxShadowBlur: '0'}, 0.40]
-          ]
-      });
-  $.Velocity
-      .RegisterEffect("scaleUp.moveUp", {
-          defaultDuration: 1,
-          calls: [
-              [{translateY: '90%', scale: '0.9', boxShadowBlur: '40px'}, 0.20],
-              [{translateY: '0%'}, 0.60],
-              [{translateY: '0%', scale: '1', boxShadowBlur: '0'}, 0.20]
-          ]
-      });
-  $.Velocity
-      .RegisterEffect("scaleUp.moveUp.scroll", {
-          defaultDuration: 1,
-          calls: [
-              [{translateY: '0%', scale: '0.9', boxShadowBlur: '40px'}, 0.60],
-              [{translateY: '0%', scale: '1', boxShadowBlur: '0'}, 0.40]
-          ]
-      });
-  $.Velocity
-      .RegisterEffect("scaleDown.moveDown", {
-          defaultDuration: 1,
-          calls: [
-              [{translateY: '10%', scale: '0.9', boxShadowBlur: '40px'}, 0.20],
-              [{translateY: '100%'}, 0.60],
-              [{translateY: '100%', scale: '1', boxShadowBlur: '0'}, 0.20]
-          ]
-      });
-  $.Velocity
-      .RegisterEffect("scaleDown.moveDown.scroll", {
-          defaultDuration: 1,
-          calls: [
-              [{translateY: '100%', scale: '0.9', boxShadowBlur: '40px'}, 0.60],
-              [{translateY: '100%', scale: '1', boxShadowBlur: '0'}, 0.40]
-          ]
-      });
-  $.Velocity
-      .RegisterEffect("scaleUp.moveDown", {
-          defaultDuration: 1,
-          calls: [
-              [{translateY: '-90%', scale: '0.9', boxShadowBlur: '40px'}, 0.20],
-              [{translateY: '0%'}, 0.60],
-              [{translateY: '0%', scale: '1', boxShadowBlur: '0'}, 0.20]
-          ]
-      });
-  //catch up
-  $.Velocity
-      .RegisterEffect("translateUp.delay", {
-          defaultDuration: 1,
-          calls: [
-              [{translateY: '0%'}, 0.8, {delay: 100}]
-          ]
-      });
-  //opacity
-  $.Velocity
-      .RegisterEffect("hide.scaleUp", {
-          defaultDuration: 1,
-          calls: [
-              [{opacity: '0', scale: '1.2'}, 1]
-          ]
-      });
-  $.Velocity
-      .RegisterEffect("hide.scaleDown", {
-          defaultDuration: 1,
-          calls: [
-              [{opacity: '0', scale: '0.8'}, 1]
-          ]
-      });
-  //parallax
-  $.Velocity
-      .RegisterEffect("translateUp.half", {
-          defaultDuration: 1,
-          calls: [
-              [{translateY: '-350%'}, 1]
-          ]
-      });
-
-  $.Velocity
-      .RegisterEffect("translateUp.half", {
-          defaultDuration: 1,
-          calls: [
-              [{translateY: '350%'}, 1]
-          ]
-      });
-
-  $.Velocity
-      .RegisterEffect("translateRight.half", {
-          defaultDuration: 1,
-          calls: [
-              [{translateY: '150%'}, 1]
-          ]
-      });
-
-  $.Velocity
-      .RegisterEffect("translateRightcontent.half", {
-          defaultDuration: 1,
-          calls: [
-              [{width: '75%'}, 1]
-          ]
-      });
-
-  $.Velocity
-      .RegisterEffect("translateRightcontentoff.half", {
-          defaultDuration: 1,
-          calls: [
-              [{width: '1%'}, 1]
-          ]
-      });
-  $.Velocity
-      .RegisterEffect("pcontentShow", {
-          defaultDuration: 1,
-          calls: [
-              [{opacity: '1.1'}, 1]
-          ]
-      });
-
-  $.Velocity
-      .RegisterEffect("escidaDestra", {
-          defaultDuration: 1,
-          calls: [
-              [{translateX: '0%', scale: '1', boxShadowBlur: '0px'}, 0.20],
-              [{translateX: '50%'}, 0.60],
-              [{translateX: '100%', scale: '1', boxShadowBlur: '0'}, 0.20]
-          ]
-      });
-
-  $.Velocity
-      .RegisterEffect("escidaSinistra", {
-          defaultDuration: 1,
-          calls: [
-              [{translateX: '-10%', scale: '1', boxShadowBlur: '0px'}, 0.20],
-              [{translateX: '-50%'}, 0.60],
-              [{translateX: '-100%', scale: '1', boxShadowBlur: '0px'}, 0.20]
-          ]
-      });
-
-  $.Velocity
-      .RegisterEffect("entradaDestra", {
-          defaultDuration: 1,
-          calls: [
-              [{scale: '1', right: '0%'}, 1.20]
-          ]
-      });
-
-  $.Velocity
-      .RegisterEffect("entradaSinistra", {
-          defaultDuration: 1,
-          calls: [
-              [{scale: '1', left: '0%'}, 1.20]
-          ]
-      });
 
 
   var FadeTransition = Barba.BaseTransition.extend({
     start: function() {
+        console.log("Start Trans");
       /**
        * This function is automatically called as soon the Transition starts
        * this.newContainerLoading is a Promise for the loading of the new container
@@ -245,9 +29,12 @@ console.log("Ready TRANS");
       /**
        * this.oldContainer is the HTMLElement of the old Container
        */
-       $(".is-off-canvas-open").toggleClass('is-off-canvas-open is-open-left');;
-
-      return $(this.oldContainer).velocity("slideUp", { duration: 1500 }).promise();
+        console.log("fadeout");
+       var deferred = Barba.Utils.deferred();
+       ricaLoader.show(deferred.resolve,1500);
+       return deferred.promise;
+      //  $(".is-off-canvas-open").toggleClass('is-off-canvas-open is-open-left');;
+      // return $(this.oldContainer).velocity("slideUp", { duration: 1500 }).promise();
     },
 
     fadeIn: function() {
@@ -257,16 +44,25 @@ console.log("Ready TRANS");
        * Please note, newContainer is available just after newContainerLoading is resolved!
        */
 
+       console.log("fadeIn");
       var _this = this;
-      var $el = $(this.newContainer);
       $(this.oldContainer).hide();
-      $el.velocity("slideDown", {visibility : 'visible', duration: 1500, complete: function(elements) { console.log(elements);
-      _this.done(); }});
+      $(this.newContainer).css('visibility','visible');
+      ricaLoader.hide(function () {
+        console.log("endTrans");
+        _this.done();
+      }, 1500);
+
+      // $el.velocity("slideDown", {visibility : 'visible', duration: 1500, complete: function(elements) {
+      //   console.log("endTrans");
+      //   _this.done();
+      //   }});
     }
   });
   var Homepage = Barba.BaseView.extend({
     namespace: 'page',
     onEnter: function() {
+        console.log("onEnter");
         // The new Container is ready and attached to the DOM.
     },
     onEnterCompleted: function() {
@@ -276,9 +72,11 @@ console.log("Ready TRANS");
 
     },
     onLeave: function() {
+        console.log("onLeave");
         // A new Transition toward a new page has just started.
     },
     onLeaveCompleted: function() {
+        console.log("onLeaveCompleted");
         // The Container has just been removed from the DOM.
     }
   });
@@ -300,21 +98,48 @@ console.log("Ready TRANS");
 
     return FadeTransition;
   };
+  Barba.Dispatcher.on("linkClicked", function() {
+    console.log("linkClicked", arguments)
+  });
+  Barba.Dispatcher.on("initStateChange", function() {
+    console.log("initStateChange", arguments)
+  });
+  Barba.Dispatcher.on("newPageReady", function() {
+    console.log("newPageReady", arguments);
+  });
   Barba.Dispatcher.on("transitionCompleted", function() {
-    //console.log($("#more"));
+    console.log("transitionCompleted", arguments);
+    //Questo metodo viene sempre eseguito anche al caricamento della prima pagina
+    //SE il barba container è hidden sono nella prima pagina!!
+    if ($(".barba-container").css('visibility') == 'hidden') {
+        $(".barba-container").css('visibility', 'visible');
+        ricaLoader.hide(function () {
+
+            $("#more").velocity({
+                translateX: "200px",
+                rotateZ: "360deg"
+            },{complete: function (){ console.log("animazione velocity finita")}}).velocity("reverse", {delay:500 });
+            $("#less").velocity({
+                translateX: "-200px",
+                rotateZ: "-360deg"
+            }).velocity("reverse", {delay:500 });
+        });
+
+    }else {
    // $(document).foundation();
    $("#more").velocity({
        translateX: "200px",
        rotateZ: "360deg"
-   }).velocity("reverse", {delay:500 });
+   },{complete: function (){ console.log("animazione velocity finita")}}).velocity("reverse", {delay:500 });
    $("#less").velocity({
        translateX: "-200px",
        rotateZ: "-360deg"
-   }).velocity("reverse", {delay:500 });
+   }).velocity("reverse", {delay:500 });}
   // $("#barba-container").velocity("slideUp",   {delay: 900, duration: 1000});
   });
+
   //Please note, the DOM should be ready
   Barba.Pjax.start();
-  Barba.Prefetch.init();
+  //Barba.Prefetch.init();
 
 });
