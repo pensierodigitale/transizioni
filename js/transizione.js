@@ -137,9 +137,10 @@ console.log("Ready TRANS");
    }).velocity("reverse", {delay:500 });}
   // $("#barba-container").velocity("slideUp",   {delay: 900, duration: 1000});
   });
+  Barba.Pjax.originalPreventCheck = Barba.Pjax.preventCheck;
 
   //Please note, the DOM should be ready
   Barba.Pjax.start();
-  //Barba.Prefetch.init();
+  Barba.Prefetch.init();
 
 });
