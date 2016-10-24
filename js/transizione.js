@@ -1,14 +1,5 @@
 jQuery(document).ready(function() {
 console.log("Ready TRANS");
-  /* Custom effects registration - feature available in the Velocity UI pack */
-  //none
-
-   // nuovo effetto
-    /* loader div in tarnsizione*/
-  // loader = new SVGLoader( document.getElementById( 'loader' ), { speedIn : 300, easingIn : mina.easeinout } );
-  // //*
-
-
 
   var FadeTransition = Barba.BaseTransition.extend({
     start: function() {
@@ -31,7 +22,7 @@ console.log("Ready TRANS");
        */
         console.log("fadeout");
        var deferred = Barba.Utils.deferred();
-       ricaLoader.show(deferred.resolve,1500);
+       ricaLoader.show(deferred.resolve,500);
        return deferred.promise;
       //  $(".is-off-canvas-open").toggleClass('is-off-canvas-open is-open-left');;
       // return $(this.oldContainer).velocity("slideUp", { duration: 1500 }).promise();
@@ -51,7 +42,7 @@ console.log("Ready TRANS");
       ricaLoader.hide(function () {
         console.log("endTrans");
         _this.done();
-      }, 1500);
+      }, 500);
 
       // $el.velocity("slideDown", {visibility : 'visible', duration: 1500, complete: function(elements) {
       //   console.log("endTrans");
@@ -111,10 +102,7 @@ console.log("Ready TRANS");
     console.log("transitionCompleted", arguments);
     //Questo metodo viene sempre eseguito anche al caricamento della prima pagina
     //SE il barba container è hidden sono nella prima pagina!!
-    if ($(".barba-container").css('visibility') == 'hidden') {
-        $(".barba-container").css('visibility', 'visible');
-        ricaLoader.hide(function () {
-
+    var localAnim = function () {
             $("#more").velocity({
                 translateX: "200px",
                 rotateZ: "360deg"
@@ -123,18 +111,16 @@ console.log("Ready TRANS");
                 translateX: "-200px",
                 rotateZ: "-360deg"
             }).velocity("reverse", {delay:500 });
-        });
+        }
+    if ($(".barba-container").css('visibility') == 'hidden') {
 
+        f_d.promise.then(function () {
+            $(".barba-container").css('visibility', 'visible');
+            ricaLoader.hide(localAnim, 500);
+        })
     }else {
-   // $(document).foundation();
-   $("#more").velocity({
-       translateX: "200px",
-       rotateZ: "360deg"
-   },{complete: function (){ console.log("animazione velocity finita")}}).velocity("reverse", {delay:500 });
-   $("#less").velocity({
-       translateX: "-200px",
-       rotateZ: "-360deg"
-   }).velocity("reverse", {delay:500 });}
+        localAnim();
+   }
   // $("#barba-container").velocity("slideUp",   {delay: 900, duration: 1000});
   });
   Barba.Pjax.originalPreventCheck = Barba.Pjax.preventCheck;

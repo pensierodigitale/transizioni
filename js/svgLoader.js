@@ -79,7 +79,7 @@
 	SVGLoader.prototype.hide = function(callback, speedOut) {
 		var self = this;
         console.log("hide start");
-        if(speedOut) this.options.speedOut=speedOut;
+        if(speedOut) this.options.speedOut = speedOut;
 		classie.removeClass( this.el, 'pageload-loading' );
 		this._animateSVG( 'out', function() {
 			// reset path
