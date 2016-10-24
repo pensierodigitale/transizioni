@@ -22,9 +22,11 @@
         <path d="m 75,-80 155,0 0,225 C 90,85 100,30 75,-80 z"/>
     </svg>
 <script type="text/javascript">
-    var  ricaLoader = new SVGLoader( document.getElementById( 'loader' ), {speedIn: 0, easingIn : mina.easeinout , speedOut: 2000 } );
-    ricaLoader.show();
-    console.log("init loader");
+            var  ricaLoader = new SVGLoader( document.getElementById( 'loader' ), {speedIn: 500, easingIn : mina.easeinout , speedOut: 500 } );
+            var f_d = Barba.Utils.deferred();
+
+            ricaLoader.show(f_d.resolve, 0);
+            console.log("init loader");
 </script>
 </div>
     <div id="barba-wrapper">
